@@ -1,0 +1,69 @@
+Shell Sort Analysis 
+
+
+Shell sort sorts an array by comparing two elements in the array seperated by a gap. The gap is obtained 
+through getting the length of the array and dividing by two. When it is determined that the elemets should
+be swapped, it will swap them and then compare the element that could be swapped again with another element
+down the array at the same gap distance. It will then increase the the index for both elemtns being compared 
+by one until the end of the array is reached and at which time a new iteration will begin by diving the gap
+by 2 and starting the process over again.
+
+For example in this array [12, 3, 8, 10, 23, 40, 2, 1] the gap will be 4 so it will compare 12 and 23. 
+If sorting from smallest to largest the elements would stay and the sort will then compare 3 and 40. 
+
+
+Here is the shell sort I wrote for this assignment: 
+It has a time complexity of n^2(log n)
+worst case time complexity n^2
+
+	public static void shellsort(double[] array) {
+		
+		int gap = array.length / 2;
+		1 assignment and 1 arithmatic 
+		while (gap > 0) { 
+			1 comparison
+			log n comparison - (gap / 2)
+
+			int gap2 = gap;
+			int i = 0;
+			2 assignment
+
+			while (gap2 != array.length) {
+				n comparison 
+
+				if (array[gap2] > array[i]) {
+					n comparison 
+
+					swap(array, gap2, i);
+					3 assignment
+
+					int counter1 = i;
+					int counter2 = i - gap;
+					2 assigment 
+
+					while (counter2 >= 0) {
+						n comparison (1)
+
+						if (array[counter1] > array[counter2]) {
+							1 comparison
+
+							swap(array, counter1, counter2);
+							3 assignment
+						}
+						counter2 -= gap;
+						counter1 -= gap;
+						2 assignment
+					}
+				}
+				i++;
+				gap2++;
+				2 arithmetic and 2 assignment
+		}
+		gap /= 2;
+		1 arithmetic 1 assignment
+		}
+	}
+
+
+
+ 
